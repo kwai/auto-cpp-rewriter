@@ -23,6 +23,7 @@
 本文档将按如下部分介绍此项目(待完善)：
 
 - [问题描述](problem/README.md)
+  - [背景](problem/README.md)
   - [原始数据格式与特征提取](problem/original_format.md)
   - [迁移 kv 特征](problem/kv_feature/README.md)
     - [数据转换](problem/kv_feature/format_conversion.md)

@@ -4,5 +4,6 @@
 
 实际问题中涉及很多的细节，如数据格式的定义与映射、读取数据的逻辑、计算逻辑等。以下将分两部分详细介绍下。
 
+- [背景](problem/README.md)
 - [原始数据格式与特征提取](problem/origin_format.md)
 - [迁移 kv 特征](problem/kv_feature/README.md)
