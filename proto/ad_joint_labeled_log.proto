@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package auto_cpp_rewriter;
+
+option cc_enable_arenas = true;
+
+/////// 打标信息 /////////////
+message LabelInfo {
+    bool click = 1;
+    bool like = 2;
+    bool follow = 3;
+    bool forward = 4;
+    map<uint64, LabelAttr> label_infos = 5; // 新label都放在这里，key是labelId
+};
+
+//////////////////////// 投放单元类型 ///////////////////
+enum ItemType {
+    UNKNOWN = 0;
+    AD_DSP = 1;
+    FANS_TOP = 2;
+    NATURE_PHOTO = 3;
+}
+
+message CommonInfoAttr {
+    enum Name {
+        UNKNOW_NAME = 0;
+
+        LIVE_RECO_EMBEDDING_CTR_USER = 1;
+        APP_LIST = 2;
+        CLICK_LIST_FOLLOW = 3;
+        CLICK_LIST_HOT = 4;
+        CLICK_LIST_NEAR = 5;
+        FORWARD_LIST = 6;
+    }
+
+    optional CommonTypeEnum.AttrType type = 1;
+    optional int64 name_value = 2;
+    optional int64 int_value = 3;
+    optional float float_value = 4;
+    optional bytes string_value = 5;
+    repeated int64 int_list_value = 6;
+    repeated float float_list_value = 7;
+    repeated bytes string_list_value = 8;
+    map<int64, int64> map_int64_int64_value = 9;
+    map<string, int64> map_string_int64_value = 10;
+    map<int64, float> map_int64_float_value = 11;
+    map<string, float> map_string_float_value = 12;
+}
+
+///// Item1: AdDspInfo /////////////
+message AdDspInfo {
+    Creative creative = 1;
+    PhotoInfo photo_info = 2;
+    AdDspMmuInfo ad_dsp_mmu_info = 3;
+    LiveInfo live_info = 4;
+}
+
+message Context {
+    string app_id = 1;
+    int64 page_id = 2;
+    int64 sub_page_id = 3;
+    repeated ContextInfoCommonAttr info_common_attr = 9; // 上下文通用信息类特征
+}
+
+message UserActionDetail {
+    repeated SimpleUserInfo follow = 1;
+    repeated SimplePhotoInfo like = 2;
+}
+
+message DeviceInfo {
+    string id = 1;
+    string app_ver = 2;
+    uint32 platform = 3; // 对应client_id : ios or android
+    string visit_net = 4; //WIFI, 或者 上网制式, 如 EDGE，UTMS 等
+    string visit_mod = 5; //设备型号，MI 3, Coolpad 2, IOS:iPhone8,1
+    repeated string app_installed = 6; // 安装的app列表
+    string os_version = 7;
+    string os_type = 8;
+}
+
+message UserInfo {
+    uint64 id = 1;
+    UserActionDetail action_detail = 2;
+    repeated CommonInfoAttr common_info_attr = 3;
+}
+
+/////// Item 表示一个投放单元 ///////////////
+message Item {
+    string reason = 1;
+    ItemType type = 2;
+    uint64 id = 3;
+    repeated CommonInfoAttr common_info_attr = 4;
+}
+
+//////////// AdJointLabeledLog /////////////////
+message AdJointLabeledLog {
+    uint64 llsid = 1;
+    uint32 deprecated_tab = 2;
+    uint64 time = 3;
+    uint32 page = 4;
+    UserInfo user_info = 5;
+    repeated Item item = 6;
+}
