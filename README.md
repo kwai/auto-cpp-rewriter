@@ -16,4 +16,4 @@
 因此，我基于 `llvm` 实现了自动改写 `c++` 特征抽取类的工具，自动将抽取类转换为 `kv` 特征抽取类，且保证
 逻辑完全一致。
 
-详细文档见: https://kwai.github.io/auto-cpp-rewriter/#/。
+详细文档见: https://kwai.github.io/auto-cpp-rewriter
