@@ -1,5 +1,6 @@
 - [简介](README.md)
 - [问题描述](problem/README.md)
+  - [背景](problem/background.md)
   - [原始数据格式与特征提取](problem/origin_format.md)
   - [迁移 kv 特征](problem/kv_feature/README.md)
     - [数据转换](problem/kv_feature/format_conversion.md)
