@@ -2,7 +2,7 @@
 
 原始数据是以 `protobuf` 格式存储的，通过 `c++` 实现特征提取的逻辑。如下图所示:
 
-![proto_data_and_feature](../../images/problem/origin_format/proto_data_and_feature.png)
+![proto_data_and_feature](./images/problem/origin_format/proto_data_and_feature.png)
 
 ## 原始数据格式: `AdJointLabeledLog`
 
