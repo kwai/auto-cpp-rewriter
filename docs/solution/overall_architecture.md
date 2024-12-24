@@ -2,4 +2,4 @@
 
 整体架构如下所示:
 
-![overall_arch](../../images/solution/overall_arch.png)
+![overall_arch](../images/solution/overall_arch.png)

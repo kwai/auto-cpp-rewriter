@@ -2,7 +2,7 @@
 
 有了 `llvm` 解析 `c++` 代码为基础，针对之前总结的问题，我们就可以按如下思路来解决自动改写的问题:
 
-![solution_idea](../../images/solution/solution_idea.png)
+![solution_idea](../images/solution/solution_idea.png)
 
 1. 利用 `llvm` 解析 `c++` 代码, 获取代码对应的完整的 `ast` 结构, 即语法树结构。
 2. 理解代码中的上下文信息，如是 `if` 语句还是循环语句，是函数调用还是变量定义，并讲这些 `scope` 相关信息保存在专门设计的 `Env` 中。
