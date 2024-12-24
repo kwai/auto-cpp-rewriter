@@ -72,4 +72,4 @@ table BatchedSamples {
 我们可以观察到 `AdjointLabeledLog` 的结构中的路径是唯一的，因此我们可以用此路径作为唯一的 `key`，而 `value` 则可以
 统一对应到几种基础类型。对于叶子节点为基础类型的简单嵌套字段，可以直接将路径作为`key`, 叶子节点的数据作为 `value`。
 
-![pb_to_kv_convert.png](../images/problem/kv_feature/pb_to_kv_convert.png)
+![pb_to_kv_convert.png](../../images/problem/kv_feature/pb_to_kv_convert.png)
